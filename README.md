@@ -2,28 +2,45 @@
 
 External SDK documentation for Lynx, built with Mintlify.
 
-## Development
+## Structure
 
-Install dependencies from the monorepo root, then run the docs app:
+```txt
+apps/docs
+├── docs.json
+├── index.mdx
+├── sdk/
+│   ├── quickstart.mdx
+│   ├── configuration.mdx
+│   ├── tracing.mdx
+│   ├── instrumentation.mdx
+│   ├── guardrails.mdx
+│   ├── delivery.mdx
+│   └── api-reference.mdx
+└── ko/
+    ├── index.mdx
+    └── sdk/
+        ├── quickstart.mdx
+        ├── configuration.mdx
+        ├── tracing.mdx
+        ├── instrumentation.mdx
+        ├── guardrails.mdx
+        ├── delivery.mdx
+        └── api-reference.mdx
+```
+
+English is the default language. Korean pages live under `ko/`.
+
+## Development
 
 ```bash
 pnpm install
-pnpm --filter lynx-docs dev
+pnpm --filter docs dev
 ```
-
-The local preview runs from the folder that contains `docs.json`.
 
 ## Scripts
 
 ```bash
-pnpm --filter lynx-docs dev
-pnpm --filter lynx-docs build
-pnpm --filter lynx-docs lint
+pnpm --filter docs dev
+pnpm --filter docs build
+pnpm --filter docs lint
 ```
-
-## Internationalization
-
-English is the default language and lives at the document root.
-
-Korean pages live under `ko/` and are configured through `navigation.languages`
-in `docs.json`.
