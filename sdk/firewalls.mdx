@@ -1,13 +1,13 @@
 ---
-title: "Guardrails"
+title: "Firewalls"
 description: "Run a local policy check before a risky tool call is executed."
 ---
 
-`guardTool()` wraps a tool function with a local policy check. The policy runs before the tool call. If the policy blocks, the original tool function is not executed.
+`firewallTool()` wraps a tool function with a local policy check. The policy runs before the tool call. If the policy blocks, the original tool function is not executed.
 
 ## When to use this
 
-Use guardrails for tool calls that can have side effects, cost impact, or user impact.
+Use firewalls for tool calls that can have side effects, cost impact, or user impact.
 
 Examples:
 
@@ -28,7 +28,7 @@ The decision is recorded as part of the session. If the decision blocks the call
 ```ts
 import { LynxPolicyError } from "@lynxops/sdk";
 
-const refund = lynx.guardTool(
+const refund = lynx.firewallTool(
   "refund.create",
   async ({ amount }: { amount: number }) => {
     return { refunded: amount };
@@ -97,7 +97,7 @@ Lynx can show:
 
 ## Server availability
 
-Guardrail decisions are local. If the Lynx API is unavailable, the SDK still evaluates your policy callback. The policy decision event is queued and retried later.
+Firewall decisions are local. If the Lynx API is unavailable, the SDK still evaluates your policy callback. The policy decision event is queued and retried later.
 
 ## Notes
 
